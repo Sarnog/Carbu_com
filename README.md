@@ -1,6 +1,6 @@
 # Carbu.com voor Home Assistant
 
-> **Herkomst:** deze integratie is oorspronkelijk gemaakt door [myTselection](https://github.com/myTselection) (MIT-licentie, zie [LICENSE](LICENSE)). De oorspronkelijke repository bestaat niet meer. Deze repository wordt onderhouden door [@Sarnog](https://github.com/Sarnog) en bevat de laatst werkende versie (12.0.2) als basis.
+> Gemaakt en onderhouden door [@Sarnog](https://github.com/Sarnog). Licentie: MIT, zie [LICENSE](LICENSE).
 
 Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de buurt, voor België, Frankrijk, Luxemburg, Nederland, Duitsland, Italië, Spanje en de VS. Niet verbonden aan Carbu.com.
 
@@ -12,12 +12,12 @@ Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de
 4. Herstart Home Assistant.
 5. Instellingen → Apparaten & diensten → **Integratie toevoegen** → *Carbu.com*.
 
-### Overstappen vanaf de oude myTselection-repository
+### Overstappen vanaf de oude repository
 
 Het domein (`carbu_com`) is gelijk gebleven, dus je bestaande instellingen en entiteiten blijven behouden.
 
 1. HACS → Carbu.com → menu (⋮) → **Verwijderen** (alleen in HACS; verwijder de integratie *niet* onder Apparaten & diensten). Nog niet herstarten.
-2. Verwijder eventueel de oude aangepaste repository `myTselection/Carbu_com` uit HACS.
+2. Verwijder eventueel de oude aangepaste repository uit HACS.
 3. Voeg `https://github.com/Sarnog/Carbu_com` toe als aangepaste repository en installeer Carbu.com opnieuw.
 4. Herstart Home Assistant.
 
@@ -27,7 +27,7 @@ Via [Issues](https://github.com/Sarnog/Carbu_com/issues). Meld problemen niet bi
 
 ---
 
-*Uitgebreide documentatie (Engels, van de oorspronkelijke auteur) staat hieronder.*
+*Uitgebreide documentatie (Engels) staat hieronder.*
 
 [![GitHub release](https://img.shields.io/github/release/Sarnog/Carbu_com.svg)](https://github.com/Sarnog/Carbu_com/releases)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Sarnog/Carbu_com.svg)
@@ -53,7 +53,6 @@ Some discussion on this topic can be found within [the Home Assistant community 
 
 For electricity price expectations [this Entso-E HACS integration](https://github.com/JaccoR/hass-entso-e) can be used.
 
-For cheapest Belgian gas and electricity contracts, prices and promotions, please check out [MyEnergy] by myTselection(https://github.com/myTselection/MyEnergy)
 
 <p align="center"><img src="https://raw.githubusercontent.com/Sarnog/Carbu_com/master/icon.png"/></p>
 
