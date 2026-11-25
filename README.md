@@ -1,6 +1,6 @@
 # Carbu.com voor Home Assistant
 
-> Gemaakt en onderhouden door [@Sarnog](https://github.com/Sarnog). Licentie: MIT, zie [LICENSE](LICENSE).
+> Onderhouden door [@Sarnog](https://github.com/Sarnog). Licentie: MIT, zie [LICENSE](LICENSE).
 
 Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de buurt, voor België, Frankrijk, Luxemburg, Nederland, Duitsland, Italië, Spanje en de VS. Niet verbonden aan Carbu.com.
 
