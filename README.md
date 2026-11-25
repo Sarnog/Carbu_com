@@ -14,11 +14,11 @@ Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de
 
 ### Overstappen vanaf de oude repository
 
-Het domein (`carbu_com`) is gelijk gebleven, dus je bestaande instellingen en entiteiten blijven behouden.
+Het domein (`carbu_com`) is gelijk gebleven, dus je bestaande instellingen en entiteiten blijven behouden. **Verwijder de integratie niet**: dan ben je al je locaties en entiteiten kwijt.
 
-1. HACS → Carbu.com → menu (⋮) → **Verwijderen** (alleen in HACS; verwijder de integratie *niet* onder Apparaten & diensten). Nog niet herstarten.
-2. Verwijder eventueel de oude aangepaste repository uit HACS.
-3. Voeg `https://github.com/Sarnog/Carbu_com` toe als aangepaste repository en installeer Carbu.com opnieuw.
+1. Maak eerst een backup.
+2. Voeg `https://github.com/Sarnog/Carbu_com` toe als aangepaste repository (type **Integratie**).
+3. Download Carbu.com vanuit deze repository; de bestanden worden overschreven.
 4. Herstart Home Assistant.
 
 ## Problemen melden
