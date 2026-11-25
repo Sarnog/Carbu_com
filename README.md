@@ -1,10 +1,55 @@
-[![HACS Default](https://img.shields.io/badge/HACS-Default-blue.svg)](https://github.com/hacs/default)
-[![GitHub release](https://img.shields.io/github/release/myTselection/carbu_com.svg)](https://github.com/myTselection/carbu_com/releases)
-![GitHub repo size](https://img.shields.io/github/repo-size/myTselection/carbu_com.svg)
+# Carbu.com voor Home Assistant
 
-[![GitHub issues](https://img.shields.io/github/issues/myTselection/carbu_com.svg)](https://github.com/myTselection/carbu_com/issues)
-[![GitHub last commit](https://img.shields.io/github/last-commit/myTselection/carbu_com.svg)](https://github.com/myTselection/carbu_com/commits/master)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/myTselection/carbu_com.svg)](https://github.com/myTselection/carbu_com/graphs/commit-activity)
+> Onderhouden door [@Sarnog](https://github.com/Sarnog). Licentie: MIT, zie [LICENSE](LICENSE).
+
+Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de buurt, voor België, Frankrijk, Luxemburg, Nederland, Duitsland, Italië, Spanje en de VS. Niet verbonden aan Carbu.com.
+
+<!-- Ko-fi badge via shields.io, geen externe tracking -->
+[![Koop me een koffie op Ko-fi](https://img.shields.io/badge/Ko--fi-Koop%20me%20een%20koffie-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/sarnog)
+
+<!-- GitHub Sponsors badge, toont live het aantal sponsors -->
+[![Sponsor via GitHub](https://img.shields.io/github/sponsors/sarnog?style=for-the-badge&logo=github&label=Sponsors&color=EA4AAA)](https://github.com/sponsors/sarnog)
+
+## Installeren via de Marketplace
+
+1. Marketplace → menu (⋮) → **Aangepaste repositories**.
+2. Repository: `https://github.com/Sarnog/Carbu_com`, type: **Integratie**.
+3. Zoek **Carbu.com** in de Marketplace en installeer.
+4. Herstart Home Assistant.
+5. Instellingen → Apparaten & diensten → **Integratie toevoegen** → *Carbu.com*.
+
+### Overstappen vanaf de oude repository
+
+Het domein (`carbu_com`) is gelijk gebleven, dus je bestaande instellingen en entiteiten blijven behouden. **Verwijder de integratie niet**: dan ben je al je locaties en entiteiten kwijt.
+
+1. Maak eerst een backup.
+2. Voeg `https://github.com/Sarnog/Carbu_com` toe als aangepaste repository (type **Integratie**).
+3. Download Carbu.com vanuit deze repository; de bestanden worden overschreven.
+4. Herstart Home Assistant.
+
+## Steun dit project ☕
+
+Als u deze integratie nuttig vindt en mijn werk waardeert, overweeg dan om
+een bedrag te doneren. Alvast bedankt!
+
+[![Koop me een koffie op Ko-fi](https://img.shields.io/badge/Ko--fi-Koop%20me%20een%20koffie-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/sarnog)
+
+[![Sponsor via GitHub](https://img.shields.io/github/sponsors/sarnog?style=for-the-badge&logo=github&label=Sponsors&color=EA4AAA)](https://github.com/sponsors/sarnog)
+
+## Problemen melden
+
+Via [Issues](https://github.com/Sarnog/Carbu_com/issues). Meld problemen niet bij Carbu.com of andere websites.
+
+---
+
+*Uitgebreide documentatie (Engels) staat hieronder.*
+
+[![GitHub release](https://img.shields.io/github/release/Sarnog/Carbu_com.svg)](https://github.com/Sarnog/Carbu_com/releases)
+![GitHub repo size](https://img.shields.io/github/repo-size/Sarnog/Carbu_com.svg)
+
+[![GitHub issues](https://img.shields.io/github/issues/Sarnog/Carbu_com.svg)](https://github.com/Sarnog/Carbu_com/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Sarnog/Carbu_com.svg)](https://github.com/Sarnog/Carbu_com/commits/master)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Sarnog/Carbu_com.svg)](https://github.com/Sarnog/Carbu_com/graphs/commit-activity)
 
 # Carbu.com Home Assistant integration for cheapest fuel stations
 Home Assistant custom component to create sensors with information on the cheapest fuel station in a chosen area. This custom component has been built from the ground up to bring for example Carbu.com & Mazout.com and similar site data to compare and save on your fuel oil, diesel, lpg and Super prices and integrate this information into Home Assistant. This integration is built against the public websites provided by Carbu.com and other similar sites. Sensors will be created for the currently **cheapest** gas station in a region (at location, within 5km and within 10km). The cheapest fuel station in between two locations can be retrieved too.
@@ -21,16 +66,14 @@ Since R11.0, a [Geoapify.com](https://myprojects.geoapify.com/register) API key 
 
 Some discussion on this topic can be found within [the Home Assistant community forum](https://community.home-assistant.io/t/rest-sensor-needs-to-get-latest-element-of-list/404882/4).
 
-For electricity price expectations [this Entso-E HACS integration](https://github.com/JaccoR/hass-entso-e) can be used.
+For electricity price expectations [this Entso-E integration](https://github.com/JaccoR/hass-entso-e) can be used.
 
-For cheapest Belgian gas and electricity contracts, prices and promotions, please check out my other integration [MyEnergy](https://github.com/myTselection/MyEnergy)
 
-<p align="center"><img src="https://raw.githubusercontent.com/myTselection/carbu_com/master/icon.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Sarnog/Carbu_com/master/icon.png"/></p>
 
 
 ## Installation
-- [HACS](https://hacs.xyz/): search for Carbu in the default HACS repo list or use below button to navigate directly to it on your local system and install via HACS. 
-   -    [![Open your Home Assistant instance and open the repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg?style=flat-square)](https://my.home-assistant.io/redirect/hacs_repository/?owner=myTselection&repository=Carbu_com&category=integration)
+- Marketplace: add `https://github.com/Sarnog/Carbu_com` as a custom repository (type *Integration*) and install it from the Marketplace.
 - Restart Home Assistant
 - Add 'Carbu.com' integration via HA Settings > 'Devices and Services' > 'Integrations'
 - Provide country, postal code and select the desired sensors
@@ -323,12 +366,12 @@ A **service `carbu_com.get_lowest_fuel_price_on_route`** (**BETA**) to get the l
     
 
 ## Status
-Still some optimisations are planned, see [Issues](https://github.com/myTselection/carbu_com/issues) section in GitHub.
+Still some optimisations are planned, see [Issues](https://github.com/Sarnog/Carbu_com/issues) section in GitHub.
 
 ## Technical pointers
 The main logic and API connection related code can be found within source code Carbu.com/custom_components/Carbu.com:
-- [sensor.py](https://github.com/myTselection/carbu_com/blob/master/custom_components/carbu_com/sensor.py)
-- [utils.py](https://github.com/myTselection/carbu_com/blob/master/custom_components/carbu_com/utils.py) -> mainly ComponentSession class
+- [sensor.py](https://github.com/Sarnog/Carbu_com/blob/master/custom_components/carbu_com/sensor.py)
+- [utils.py](https://github.com/Sarnog/Carbu_com/blob/master/custom_components/carbu_com/utils.py) -> mainly ComponentSession class
 
 All other files just contain boilerplat code for the integration to work wtihin HA or to have some constants/strings/translations.
 
@@ -342,7 +385,7 @@ logger:
 
 ## Example usage:
 ### Gauge & Markdown
-<p align="center"><img src="https://raw.githubusercontent.com/myTselection/carbu_com/master/Markdown%20Gauge%20Card%20example.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Sarnog/Carbu_com/master/Markdown%20Gauge%20Card%20example.png"/></p>
 <details><summary>Click to show Mardown code example</summary>
 
 ```
@@ -432,7 +475,7 @@ cards:
 
 
 ### Markdown example card with prices for local, 5 & 10 km (by @bavala3010)
-<p align="center"><img src="https://raw.githubusercontent.com/myTselection/carbu_com/master/Markdown%20Gauge%20Card%20example2.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Sarnog/Carbu_com/master/Markdown%20Gauge%20Card%20example2.png"/></p>
 <details><summary>Click to show Mardown code example</summary>
 
 ```
@@ -515,7 +558,7 @@ cards:
 
 ### Markdown example card on map
 The sensors contain latitude and longitude attributes and entity_picture attributes to allow the sensors to be shown nicely on a map
-<p align="center"><img src="https://raw.githubusercontent.com/myTselection/carbu_com/master/Markdown%20Map%20Card%20example.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Sarnog/Carbu_com/master/Markdown%20Map%20Card%20example.png"/></p>
 <details><summary>Click to show Mardown code example</summary>
 
 ```
