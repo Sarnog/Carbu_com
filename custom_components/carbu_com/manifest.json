@@ -12,7 +12,6 @@
   "issue_tracker": "https://github.com/Sarnog/Carbu_com/issues",
   "requirements": [
     "bs4",
-    "requests",
     "voluptuous",
     "ratelimit"
   ],
