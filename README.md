@@ -4,6 +4,12 @@
 
 Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de buurt, voor België, Frankrijk, Luxemburg, Nederland, Duitsland, Italië, Spanje en de VS. Niet verbonden aan Carbu.com.
 
+<!-- Ko-fi badge via shields.io, geen externe tracking -->
+[![Koop me een koffie op Ko-fi](https://img.shields.io/badge/Ko--fi-Koop%20me%20een%20koffie-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/sarnog)
+
+<!-- GitHub Sponsors badge, toont live het aantal sponsors -->
+[![Sponsor via GitHub](https://img.shields.io/github/sponsors/sarnog?style=for-the-badge&logo=github&label=Sponsors&color=EA4AAA)](https://github.com/sponsors/sarnog)
+
 ## Installeren via de Marketplace
 
 1. Marketplace → menu (⋮) → **Aangepaste repositories**.
@@ -20,6 +26,15 @@ Het domein (`carbu_com`) is gelijk gebleven, dus je bestaande instellingen en en
 2. Voeg `https://github.com/Sarnog/Carbu_com` toe als aangepaste repository (type **Integratie**).
 3. Download Carbu.com vanuit deze repository; de bestanden worden overschreven.
 4. Herstart Home Assistant.
+
+## Steun dit project ☕
+
+Als u deze integratie nuttig vindt en mijn werk waardeert, overweeg dan om
+een bedrag te doneren. Alvast bedankt!
+
+[![Koop me een koffie op Ko-fi](https://img.shields.io/badge/Ko--fi-Koop%20me%20een%20koffie-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/sarnog)
+
+[![Sponsor via GitHub](https://img.shields.io/github/sponsors/sarnog?style=for-the-badge&logo=github&label=Sponsors&color=EA4AAA)](https://github.com/sponsors/sarnog)
 
 ## Problemen melden
 
