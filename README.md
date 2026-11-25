@@ -4,11 +4,11 @@
 
 Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de buurt, voor België, Frankrijk, Luxemburg, Nederland, Duitsland, Italië, Spanje en de VS. Niet verbonden aan Carbu.com.
 
-## Installeren via HACS
+## Installeren via de Marktplaats (voorheen HACS)
 
-1. HACS → menu (⋮) → **Aangepaste repositories**.
+1. Marktplaats (of HACS bij oudere HA-versies) → menu (⋮) → **Aangepaste repositories**.
 2. Repository: `https://github.com/Sarnog/Carbu_com`, type: **Integratie**.
-3. Zoek **Carbu.com** in HACS en installeer.
+3. Zoek **Carbu.com** in de Marktplaats en installeer.
 4. Herstart Home Assistant.
 5. Instellingen → Apparaten & diensten → **Integratie toevoegen** → *Carbu.com*.
 
