@@ -4,11 +4,11 @@
 
 Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de buurt, voor België, Frankrijk, Luxemburg, Nederland, Duitsland, Italië, Spanje en de VS. Niet verbonden aan Carbu.com.
 
-## Installeren via de Marktplaats (voorheen HACS)
+## Installeren via de Marketplace
 
-1. Marktplaats (of HACS bij oudere HA-versies) → menu (⋮) → **Aangepaste repositories**.
+1. Marketplace → menu (⋮) → **Aangepaste repositories**.
 2. Repository: `https://github.com/Sarnog/Carbu_com`, type: **Integratie**.
-3. Zoek **Carbu.com** in de Marktplaats en installeer.
+3. Zoek **Carbu.com** in de Marketplace en installeer.
 4. Herstart Home Assistant.
 5. Instellingen → Apparaten & diensten → **Integratie toevoegen** → *Carbu.com*.
 
@@ -51,15 +51,14 @@ Since R11.0, a [Geoapify.com](https://myprojects.geoapify.com/register) API key 
 
 Some discussion on this topic can be found within [the Home Assistant community forum](https://community.home-assistant.io/t/rest-sensor-needs-to-get-latest-element-of-list/404882/4).
 
-For electricity price expectations [this Entso-E HACS integration](https://github.com/JaccoR/hass-entso-e) can be used.
+For electricity price expectations [this Entso-E integration](https://github.com/JaccoR/hass-entso-e) can be used.
 
 
 <p align="center"><img src="https://raw.githubusercontent.com/Sarnog/Carbu_com/master/icon.png"/></p>
 
 
 ## Installation
-- [HACS](https://hacs.xyz/): add `https://github.com/Sarnog/Carbu_com` as a custom repository (category *Integration*), or use the button below, and install via HACS. 
-   -    [![Open your Home Assistant instance and open the repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg?style=flat-square)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Sarnog&repository=Carbu_com&category=integration)
+- Marketplace: add `https://github.com/Sarnog/Carbu_com` as a custom repository (type *Integration*) and install it from the Marketplace.
 - Restart Home Assistant
 - Add 'Carbu.com' integration via HA Settings > 'Devices and Services' > 'Integrations'
 - Provide country, postal code and select the desired sensors
