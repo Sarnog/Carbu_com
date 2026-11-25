@@ -88,7 +88,7 @@ class ComponentCoordinatorEntity(CoordinatorEntity):
         self.async_write_ha_state()
 
 
-async def dry_setup(hass, config_entry, async_add_devices):
+async def dry_setup(hass, config_entry, async_add_devices, coordinator=None):
     config = config_entry
     country = config.get("country")
     postalcode = config.get("postalcode")
@@ -119,12 +119,13 @@ async def dry_setup(hass, config_entry, async_add_devices):
             # Add the sensor to the set of existing sensors
             existing_sensors.add(sensorName)
     
-    componentData = ComponentData(
-        config,
-        hass
-    )
-    coordinator = CarbuDataUpdateCoordinator(hass, componentData)
-    await coordinator.async_config_entry_first_refresh()
+    if coordinator is None:
+        componentData = ComponentData(
+            config,
+            hass
+        )
+        coordinator = CarbuDataUpdateCoordinator(hass, componentData)
+        await coordinator.async_config_entry_first_refresh()
     assert coordinator.data is not None
 
 
@@ -297,7 +298,8 @@ async def async_setup_entry(hass, config_entry, async_add_devices):
     """Setup sensor platform for the ui"""
     _LOGGER.info("async_setup_entry " + NAME)
     config = config_entry.data
-    await dry_setup(hass, config, async_add_devices)
+    coordinator = hass.data[DOMAIN][config_entry.entry_id]
+    await dry_setup(hass, config, async_add_devices, coordinator)
     return True
 
 

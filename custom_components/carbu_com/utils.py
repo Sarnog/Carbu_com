@@ -28,6 +28,14 @@ _DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%S.0%z"
 _DATE_FORMAT = "%d/%m/%Y"
 
 
+def _redact_url_secret(url):
+    return re.sub(
+        r"([?&](?:api_key|apikey|apiKey|key)=)[^&]+",
+        r"\1<redacted>",
+        url,
+    )
+
+
 def _extract_balanced_js_object(script_text, start=0):
     object_start = script_text.find("{", start)
     if object_start == -1:
@@ -176,7 +184,8 @@ def _fuel_prediction_from_echarts_option(option, script_text):
     return [trend, prediction_date.strftime(_DATE_FORMAT)]
 
 
-
+def _fuel_prediction_from_echarts(response_text):
+    soup = BeautifulSoup(response_text, 'html.parser')
     for script in soup.find_all('script'):
         script_text = script.string or script.get_text()
         if "echarts" not in script_text:
