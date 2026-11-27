@@ -388,7 +388,7 @@ class ComponentOptionsHandler(config_entries.ConfigFlow):
 
     async def async_step_edit(self, user_input):
 
-        _LOGGER.debug(f"{NAME} async_step_edit user_input: {user_input}, options: {self.options}, errors: {self._errors},  config_entry: {self.config_entry}")
+        _LOGGER.debug(f"{NAME} async_step_edit errors: {self._errors}")
 
         if user_input is not None:
             user_input["country"] = self.config_entry.data.get("country", "BE")
