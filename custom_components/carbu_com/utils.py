@@ -3,7 +3,6 @@ import logging
 import requests
 import uuid
 import re
-import locale
 import math
 from bs4 import BeautifulSoup
 from datetime import date, datetime, timedelta
@@ -11,13 +10,10 @@ import urllib.parse
 from enum import Enum
 from .spain_gas_stations_api import GasStationApi
 # from spain_gas_stations_api import GasStationApi
-import urllib3
 from ratelimit import limits, sleep_and_retry
 
 import voluptuous as vol
 
-# Disable SSL warnings globally
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from .const import (
     DOMAIN,
 )
@@ -34,6 +30,19 @@ def _redact_url_secret(url):
         r"\1<redacted>",
         url,
     )
+
+
+# Dutch month names, parsed manually so the process-wide locale is never changed
+_DUTCH_MONTHS = {
+    "januari": 1, "februari": 2, "maart": 3, "april": 4, "mei": 5, "juni": 6,
+    "juli": 7, "augustus": 8, "september": 9, "oktober": 10, "november": 11, "december": 12,
+}
+
+
+def _parse_dutch_date(raw_date):
+    # Expects "27 november 2026"; raises ValueError otherwise (caller falls back to the string)
+    day, month, year = raw_date.split()
+    return date(int(year), _DUTCH_MONTHS[month.lower()], int(day))
 
 
 def _extract_balanced_js_object(script_text, start=0):
@@ -901,7 +910,7 @@ class ComponentSession(object):
                     lon = block.get('info').get('longitude')
                     score = block.get('info').get('star_rating')
                 except Exception as e:
-                    _LOGGER.error(f"ERROR: geocode : {e}")
+                    _LOGGER.error(f"ERROR: geocode : {_redact_url_secret(str(e))}")
 
 
 
@@ -1075,11 +1084,6 @@ class ComponentSession(object):
 
         data = {}
 
-        # Try setting Dutch locale to parse Dutch month names, fallback if not available
-        try:
-            locale.setlocale(locale.LC_TIME, 'nl_NL.UTF-8')
-        except:
-            pass  # Continue without locale if it's not available (may affect date parsing)
 
         # Extract overview date
         date_object = None
@@ -1092,7 +1096,7 @@ class ComponentSession(object):
                         raw_date = line.replace("Datum overzicht", "").strip()
                         datum_found = True
                         try:
-                            date_object = datetime.strptime(raw_date, "%d %B %Y").date()
+                            date_object = _parse_dutch_date(raw_date)
                             break
                         except:
                             date_object = raw_date  # fallback to string
@@ -1167,7 +1171,7 @@ class ComponentSession(object):
         oildetails_url = f"https://api.carbu.com/mazout/v1/offers?[object%20Object]&api_key={api_key}&maxLevel=6&minLevel=5&areaCode={locationinfo}&productId={oiltypecode}&quantity={volume}&locale=nl-BE"
         _LOGGER.debug(f"oildetails_url: {_redact_url_secret(oildetails_url)}")
         
-        response = self.s.get(oildetails_url,headers=header,timeout=30, verify=False)
+        response = self.s.get(oildetails_url,headers=header,timeout=30)
         if response.status_code != 200:
             _LOGGER.error(f"ERROR: {response.text}")
             self._MAZOUT_API_KEY = None
@@ -1186,7 +1190,7 @@ class ComponentSession(object):
         api_key = self.getMazoutApiKey()
         oildetails_url = f"https://api.carbu.com/mazout/v1/price-summary?api_key={api_key}"
         
-        response = self.s.get(oildetails_url,headers=header,timeout=30, verify=False)
+        response = self.s.get(oildetails_url,headers=header,timeout=30)
         if response.status_code != 200:
             _LOGGER.error(f"ERROR: {response.text}")
             self._MAZOUT_API_KEY = None
@@ -1550,7 +1554,7 @@ class ComponentSession(object):
             else:
                 return None, f"Error searching: {address}: {response.status_code}: {response.text}"
         except Exception as e:
-            _LOGGER.error(f"ERROR: geocode : {e}")
+            _LOGGER.error(f"ERROR: geocode : {_redact_url_secret(str(e))}")
             return None
         
     
@@ -1632,7 +1636,7 @@ class ComponentSession(object):
             else:
                 return None, f"Error searching: {address}: {response.status_code}: {response.text}"
         except Exception as e:
-            _LOGGER.error(f"ERROR: searchGeocode : {e}")
+            _LOGGER.error(f"ERROR: searchGeocode : {_redact_url_secret(str(e))}")
     
     #NOT USED for different countries to create a bounding box
     @sleep_and_retry
@@ -1723,7 +1727,7 @@ class ComponentSession(object):
                 else:
                     return None
         except Exception as e:
-            _LOGGER.error(f"ERROR: reverseGeocode: {e}")
+            _LOGGER.error(f"ERROR: reverseGeocode: {_redact_url_secret(str(e))}")
 
 
     # NOT USED for converting lat lon to postal code
