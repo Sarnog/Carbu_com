@@ -12,18 +12,16 @@ Sensoren met de goedkoopste tankstations (super, diesel, lpg) en stookolie in de
 
 ## Installeren via de Marketplace
 
-1. Marketplace → menu (⋮) → **Aangepaste repositories**.
-2. Repository: `https://github.com/Sarnog/Carbu_com`, type: **Integratie**.
-3. Zoek **Carbu.com** in de Marketplace en installeer.
-4. Herstart Home Assistant.
-5. Instellingen → Apparaten & diensten → **Integratie toevoegen** → *Carbu.com*.
+1. Zoek **Carbu.com** in de Marketplace en installeer.
+2. Herstart Home Assistant.
+3. Instellingen → Apparaten & diensten → **Integratie toevoegen** → *Carbu.com*.
 
 ### Overstappen vanaf de oude repository
 
 Het domein (`carbu_com`) is gelijk gebleven, dus je bestaande instellingen en entiteiten blijven behouden. **Verwijder de integratie niet**: dan ben je al je locaties en entiteiten kwijt.
 
 1. Maak eerst een backup.
-2. Voeg `https://github.com/Sarnog/Carbu_com` toe als aangepaste repository (type **Integratie**).
+2. Marketplace → menu (⋮) → **Aangepaste repositories**: voeg `https://github.com/Sarnog/Carbu_com` toe (type **Integratie**).
 3. Download Carbu.com vanuit deze repository; de bestanden worden overschreven.
 4. Herstart Home Assistant.
 
@@ -73,7 +71,8 @@ For electricity price expectations [this Entso-E integration](https://github.com
 
 
 ## Installation
-- Marketplace: add `https://github.com/Sarnog/Carbu_com` as a custom repository (type *Integration*) and install it from the Marketplace.
+- Search for **Carbu.com** in the Marketplace and install it.
+  - Coming from the old repository? Add `https://github.com/Sarnog/Carbu_com` as a custom repository (type *Integration*) and download it over the existing install. Do not remove the integration first, or you lose your configuration and entities.
 - Restart Home Assistant
 - Add 'Carbu.com' integration via HA Settings > 'Devices and Services' > 'Integrations'
 - Provide country, postal code and select the desired sensors
