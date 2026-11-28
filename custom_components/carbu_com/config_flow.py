@@ -4,7 +4,12 @@ from collections import OrderedDict
 
 import voluptuous as vol
 from homeassistant import config_entries
-from homeassistant.helpers.selector import selector
+from homeassistant.helpers.selector import (
+    selector,
+    TextSelector,
+    TextSelectorConfig,
+    TextSelectorType,
+)
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.const import (
@@ -66,7 +71,10 @@ def create_schema(entry, option=False):
     ] = str
     data_schema[
         vol.Optional("GEO_API_KEY", default=default_api_key, description="GeoApify API key (optional)")
-    ] = str
+    ] = TextSelector(
+        # Password field so the stored key is masked on screen
+        TextSelectorConfig(type=TextSelectorType.PASSWORD)
+    )
     data_schema[
         vol.Optional("filter", default=default_filter, description="Fuel supplier brand filter (optional)")
     ] = str
@@ -127,7 +135,10 @@ def create_update_schema(entry, option=False):
     data_schema = OrderedDict()
     data_schema[
         vol.Optional("GEO_API_KEY", default=default_api_key, description="GeoApify API key (adviced)")
-    ] = str
+    ] = TextSelector(
+        # Password field so the stored key is masked on screen
+        TextSelectorConfig(type=TextSelectorType.PASSWORD)
+    )
     data_schema[
         vol.Optional("filter_choice", default=default_filter_choice, description="Use filter?")
     ] = bool
